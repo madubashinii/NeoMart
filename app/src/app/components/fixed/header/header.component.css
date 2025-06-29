@@ -1,14 +1,20 @@
-mat-toolbar {
-  padding: 0.5rem 2rem;
-  background: linear-gradient(to left, #83bbd9, #d0ccef);
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: "Noto Serif", serif;
-}
+.header-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  z-index: 1100;  /* higher than nav so it stays on top */
+  /*background: linear-gradient(to left, #83bbd9, #d0ccef);*/
 
+  background: linear-gradient(90deg, #4a6fa5, #2f4369);
+
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
 .logo img {
   height: 50px;
   width: auto;
