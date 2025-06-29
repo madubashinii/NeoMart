@@ -1,32 +1,69 @@
+<!--<ng-container>-->
+<!--  <div class="container-fluid"  *ngIf="cartItems.length === 0; else cartWithItems">-->
+<!--    <div class="center">-->
+<!--      <h4>Your Shopping Bag Is Empty!</h4>-->
+<!--      <h6>Go and Get Your item now!</h6>-->
+<!--      <button routerLink="/home" routerLinkActive="active" class="btn btn-success">shop now</button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</ng-container>-->
+
+
+<!--<ng-template #cartWithItems>-->
+<!--  <h2>Your Cart</h2>-->
+<!--  <div class="cart-details">-->
+<!--    <div *ngFor="let item of cartItems" class="cart-item">-->
+<!--      <span>{{ item.productName }}</span>-->
+<!--      <span>Quantity: {{ item.quantity }}</span>-->
+<!--      <span>Price: {{ item.productPrice  }}</span>-->
+<!--      <button mat-button color="warn" (click)="removeItem(item)">Remove</button>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="cart-totals">-->
+<!--    <p>Total Quantity: {{ totalQuantity }}</p>-->
+<!--    <p>Total Price: {{ totalPrice}}</p>-->
+<!--  </div>-->
+
+<!--  <div class="cart-actions">-->
+<!--    <button mat-button color="primary" routerLink="/checkout" routerLinkActive="active">Proceed to Checkout</button>-->
+<!--    <button mat-button color="accent" routerLink="/categories" routerLinkActive="active">Add More Products</button>-->
+<!--  </div>-->
+<!--</ng-template>-->
+
 <ng-container>
-  <div class="container-fluid"  *ngIf="cartItems.length === 0; else cartWithItems">
-    <div class="center">
-      <h4>Your Shopping Bag Is Empty!</h4>
-      <h6>Go and Get Your item now!</h6>
-      <button routerLink="/home" routerLinkActive="active" class="btn btn-success">shop now</button>
-    </div>
+  <div *ngIf="cartItems.length === 0; else cartWithItems" class="empty-cart">
+    <h2>Your Shopping Bag is Empty!</h2>
+    <p>Go and grab your item now.</p>
+    <button mat-raised-button color="primary" routerLink="/home">Shop Now</button>
   </div>
 </ng-container>
 
-
 <ng-template #cartWithItems>
-  <h2>Your Cart</h2>
-  <div class="cart-details">
-    <div *ngFor="let item of cartItems" class="cart-item">
-      <span>{{ item.productName }}</span>
-      <span>Quantity: {{ item.quantity }}</span>
-      <span>Price: {{ item.productPrice  }}</span>
-      <button mat-button color="warn" (click)="removeItem(item)">Remove</button>
+  <div class="cart-container">
+    <h2>Your Cart</h2>
+
+    <mat-card *ngFor="let item of cartItems" class="mat-elevation-z2 cart-card">
+      <mat-card-title>{{ item.productName }}</mat-card-title>
+      <mat-card-content>
+        <p>Quantity: {{ item.quantity }}</p>
+        <p>Price: Rs. {{ item.productPrice }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="warn" (click)="removeItem(item)">Remove</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="cart-summary mat-elevation-z1">
+      <mat-card-content>
+        <p><strong>Total Quantity:</strong> {{ totalQuantity }}</p>
+        <p><strong>Total Price:</strong> Rs. {{ totalPrice }}</p>
+      </mat-card-content>
+    </mat-card>
+
+    <div class="cart-actions">
+      <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/checkout">Proceed to Checkout</button>
+      <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="/categories">Add More Products</button>
     </div>
-  </div>
-
-  <div class="cart-totals">
-    <p>Total Quantity: {{ totalQuantity }}</p>
-    <p>Total Price: {{ totalPrice}}</p>
-  </div>
-
-  <div class="cart-actions">
-    <button mat-button color="primary" routerLink="/checkout" routerLinkActive="active">Proceed to Checkout</button>
-    <button mat-button color="accent" routerLink="/categories" routerLinkActive="active">Add More Products</button>
   </div>
 </ng-template>
