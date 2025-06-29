@@ -1,22 +1,24 @@
-<div class="home-container">
+<div class="full-width-hero">
   <div class="hero-section">
-    <h1>Welcome to Our Clothing Store</h1>
-    <p>Explore the latest trends in women's fashion.</p>
-    <button mat-button routerLink="/product">Shop Now</button>
+    <div class="hero-content">
+      <h1>Welcome to Our Clothing Store</h1>
+      <p>Discover New Trends at NeoMart.</p>
+      <button mat-button routerLink="/product">Shop Now</button>
+    </div>
   </div>
+</div>
 
+<div class="home-container">
   <div class="featured-products">
     <h2>Featured Products</h2>
     <div class="product-list">
       <div *ngFor="let product of featuredProducts" class="product-card">
         <img [src]="product.productImg1" alt="{{ product.productName }}" />
         <h3>{{ product.productName }}</h3>
-        <button mat-button [routerLink]="'/product/' + product.id" routerLinkActive="active">View Details</button>
+        <button mat-button [routerLink]="'/product/' + product.id" routerLinkActive="active">
+          View Details
+        </button>
       </div>
     </div>
   </div>
-
 </div>
-
-
-
