@@ -4,7 +4,8 @@ import {HeaderComponent} from './components/fixed/header/header.component';
 import {FooterComponent} from './components/fixed/footer/footer.component';
 import {NavComponent} from './components/fixed/nav/nav.component';
 import {MatDividerModule} from '@angular/material/divider';
-
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ import {MatDividerModule} from '@angular/material/divider';
     HeaderComponent,
     FooterComponent,
     NavComponent,
+    MatCardModule,
+    MatButtonModule
   ],
   standalone: true,
   templateUrl: './app.component.html',

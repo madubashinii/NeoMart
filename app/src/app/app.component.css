@@ -1,7 +1,6 @@
 html, body {
   height: 100%;
   margin: 0;
-  font-family: "Ubuntu", serif;
 }
 
 .app-container {
@@ -12,6 +11,7 @@ html, body {
 
 .content {
   flex: 1;
+  padding-top: 130px;
 }
 
 app-footer {
