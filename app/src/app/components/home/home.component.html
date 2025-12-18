@@ -13,7 +13,7 @@
     <h2>Featured Products</h2>
     <div class="product-list">
       <div *ngFor="let product of featuredProducts" class="product-card">
-        <img [src]="product.productImg1" alt="{{ product.productName }}" />
+        <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" />
         <h3>{{ product.productName }}</h3>
         <button mat-button [routerLink]="'/product/' + product.id" routerLinkActive="active">
           View Details

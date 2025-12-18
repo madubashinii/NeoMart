@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {ApiService} from '../../services/api.service';
+import { environment } from '../../services/environment';
 import {CommonModule} from '@angular/common';
 
 @Component({
@@ -16,6 +17,7 @@ import {CommonModule} from '@angular/common';
 })
 export class HomeComponent {
   featuredProducts: any[] = [];
+  imageBaseUrl = environment.imageBaseUrl;
   errorMessage: string = '';
 
   constructor(private apiService: ApiService) {}
