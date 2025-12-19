@@ -1,7 +1,7 @@
 <div class="product-container" >
   <h2 class="product-header">Our Products</h2>
   <div class="product-card" *ngFor="let product of products">
-    <img [src]="product.productImg1" alt="{{ product.productName }}" class="product-image" />
+    <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" class="product-image" />
     <h3 class="product-name">{{ product.productName }}</h3>
     <button mat-button [routerLink]="['/product', product.id]" class="productBtn">View Details</button>
   </div>

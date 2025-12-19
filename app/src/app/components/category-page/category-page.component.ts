@@ -3,6 +3,7 @@ import {Product} from '../../modules/product';
 import {ActivatedRoute, RouterLink, RouterLinkActive} from '@angular/router';
 import {ApiService} from '../../services/api.service';
 import {CommonModule} from '@angular/common';
+import {environment} from '../../services/environment';
 
 @Component({
   selector: 'app-category-page',
@@ -18,7 +19,8 @@ import {CommonModule} from '@angular/common';
 export class CategoryPageComponent {
   categoryId: number = 0;
   products: Product[] = [];
-
+  imageBaseUrl = environment.imageBaseUrl;
+  
   constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {

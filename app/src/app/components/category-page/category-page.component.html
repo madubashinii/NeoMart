@@ -2,7 +2,7 @@
   <h2>Products in Category</h2>
   <div class="product-list">
     <div *ngFor="let product of products" class="product-card">
-      <img [src]="product.productImg1" alt="{{ product.productName }}" />
+      <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" />
       <h3>{{ product.productName }}</h3>
       <button mat-button [routerLink]="'/product/' + product.id" routerLinkActive="active">View Details</button>
     </div>

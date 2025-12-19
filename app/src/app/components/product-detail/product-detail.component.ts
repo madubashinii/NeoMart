@@ -5,7 +5,7 @@ import {ApiService} from '../../services/api.service';
 import {CommonModule, Location} from '@angular/common';
 import {CartItem} from '../../modules/cart-item';
 import {CartService} from '../../services/cart.service';
-
+import { environment } from '../../services/environment';
 
 @Component({
   selector: 'app-product-detail',
@@ -20,6 +20,7 @@ export class ProductDetailComponent {
   product: Product | undefined;
   productId: number | undefined;
   cart: Product[] = [];
+  imageBaseUrl = environment.imageBaseUrl;
 
   constructor(
     private route: ActivatedRoute,

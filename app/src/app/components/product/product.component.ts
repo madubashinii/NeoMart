@@ -3,6 +3,7 @@ import {Product} from '../../modules/product';
 import {RouterLink} from '@angular/router';
 import {ApiService} from '../../services/api.service';
 import {CommonModule} from '@angular/common';
+import { environment } from '../../services/environment';
 
 @Component({
   selector: 'app-product',
@@ -16,6 +17,7 @@ import {CommonModule} from '@angular/common';
 })
 export class ProductComponent {
   products: Product[] = [];
+  imageBaseUrl = environment.imageBaseUrl;
   constructor(private productService: ApiService) {}
 
   ngOnInit(): void {
