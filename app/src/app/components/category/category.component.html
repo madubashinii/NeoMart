@@ -1,9 +1,0 @@
-<div class="categories">
-  <h2>Our Categories</h2>
-  <div class="category-list">
-    <div *ngFor="let category of categories" class="category-card">
-      <h3>{{ category.name }}</h3>
-      <button mat-button [routerLink]="'/category/' + category.categoryId" routerLinkActive="active">View More</button>
-    </div>
-  </div>
-</div>

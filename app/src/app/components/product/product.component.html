@@ -1,8 +1,38 @@
-<div class="product-container" >
-  <h2 class="product-header">Our Products</h2>
-  <div class="product-card" *ngFor="let product of products">
-    <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" class="product-image" />
-    <h3 class="product-name">{{ product.productName }}</h3>
-    <button mat-button [routerLink]="['/product', product.id]" class="productBtn">View Details</button>
-  </div>
+<div class="page-wrapper">
+  <!-- Integrated Filter Section -->
+  <section class="filter-section">
+    <div class="filter-container">
+      <button
+        class="category-chip"
+        [class.active]="selectedCategory === null"
+        (click)="filterByCategory(null)">
+        All Products
+      </button>
+      <button
+        *ngFor="let category of categories"
+        class="category-chip"
+        [class.active]="selectedCategory === category.categoryId"
+        (click)="filterByCategory(category.categoryId)">
+        {{ category.name }}
+      </button>
+    </div>
+  </section>
+
+  <!-- Products Grid -->
+  <section class="products-grid">
+    <div class="product-card" *ngFor="let product of filteredProducts">
+      <img
+        [src]="imageBaseUrl + product.productImg1"
+        alt="{{ product.productName }}"
+        class="product-image"
+      />
+      <h3 class="product-name">{{ product.productName }}</h3>
+      <button
+        mat-button
+        class="product-btn"
+        [routerLink]="['/product', product.id]">
+        View Details
+      </button>
+    </div>
+  </section>
 </div>
