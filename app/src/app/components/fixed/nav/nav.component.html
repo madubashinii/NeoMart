@@ -8,8 +8,6 @@
   <div class="nav-links" [ngClass]="{ 'active': menuOpened }">
     <button mat-button routerLink="/home" (click)="closeMenu()">Home</button>
     <button mat-button routerLink="/product" (click)="closeMenu()">Product</button>
-    <button mat-button routerLink="/categories" routerLinkActive="active" (click)="closeMenu()">Categories</button>
-
     <!-- Show Cart link only if logged in -->
     <button *ngIf="isLoggedIn" mat-button routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">Cart</button>
   </div>

@@ -1,3 +1,5 @@
+import { Category } from './category';
+
 export interface Product {
   id: bigint;
   productName: string;
@@ -7,4 +9,5 @@ export interface Product {
   color: string;
   productDetails: string;
   isFeatured:boolean;
+  category: Category;
 }
