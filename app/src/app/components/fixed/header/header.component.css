@@ -4,43 +4,44 @@
   left: 0;
   right: 0;
   height: 70px;
-  z-index: 1100;  /* higher than nav so it stays on top */
-  /*background: linear-gradient(to left, #83bbd9, #d0ccef);*/
-
-  background: linear-gradient(90deg, #4a6fa5, #2f4369);
+  z-index: 1100;
+  background: linear-gradient(115deg, var(--brand-primary) 0%, var(--brand-secondary) 55%, var(--bg-deep) 100%);
 
   display: flex;
   align-items: center;
-  padding: 0.5rem 2rem;
+  gap: 0.6rem;
+  padding: 0.5rem 1.6rem;
   color: white;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 24px rgba(17, 31, 44, 0.25);
 }
+
 .logo img {
-  height: 50px;
+  height: 46px;
   width: auto;
   cursor: pointer;
 }
 
 .cart-btn {
   position: relative;
-  padding: 8px;
+  padding: 9px;
   border-radius: 50%;
-  transition: background 0.3s;
-  background-color: #f1f1f1;
-  margin-left: 10px;
+  transition: all 0.25s ease;
+  background-color: rgba(255, 255, 255, 0.14);
+  margin-left: 0.5rem;
 }
 
 .cart-btn:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 
 .mat-icon {
   font-size: 24px;
-  color: #3f51b5;
+  color: #f8fafc;
 }
 
 .cart-btn span {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .search-bar-container {
@@ -52,34 +53,37 @@
 .search-form {
   display: flex;
   align-items: center;
-  background-color: #f1f1f1;
-  border-radius: 25px;
-  padding: 5px 15px;
-  width: 250px;
+  background-color: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  padding: 0.38rem 0.95rem;
+  width: 280px;
   transition: all 0.3s ease;
-  margin-left: 1rem;
+  margin-left: 0.8rem;
 }
 
 .search-form:hover {
-  background-color: #e0e0e0;
-  width: 280px;
+  background-color: rgba(255, 255, 255, 0.24);
 }
 
 .search-form mat-icon {
-  font-size: 20px;
-  color: #555;
-  margin-right: 10px;
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-right: 0.5rem;
 }
 
 .search-form input {
   border: none;
   outline: none;
   background: transparent;
-  font-size: 16px;
-  color: #555;
+  font-size: 0.96rem;
+  color: #f8fafc;
   width: 100%;
-  padding: 6px 0;
-  transition: all 0.3s ease;
+  padding: 0.32rem 0;
+}
+
+.search-form input::placeholder {
+  color: rgba(248, 250, 252, 0.82);
 }
 
 @media (max-width: 768px) {
@@ -88,14 +92,19 @@
   }
 
   .logo img {
-    height: 30px;
+    height: 34px;
   }
 
   .search-form {
-    width: 200px;
+    width: 190px;
+    padding: 0.32rem 0.8rem;
   }
 
   .search-form input {
-    font-size: 14px;
+    font-size: 0.84rem;
+  }
+
+  .cart-btn {
+    margin-left: 0.35rem;
   }
 }

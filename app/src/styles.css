@@ -1,13 +1,66 @@
-html, body {
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700&display=swap");
+
+:root {
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --font-heading: "Sora", "Segoe UI", sans-serif;
+  --bg-main: #f4f3fb;
+  --bg-surface: #ffffff;
+  --bg-muted: #efedff;
+  --bg-soft: #f7f5ff;
+  --bg-soft-2: #f5f3ff;
+  --bg-soft-3: #f2f0ff;
+  --bg-deep: #221f44;
+  --bg-deep-2: #2f2b59;
+  --text-main: #19222e;
+  --text-strong: #221f44;
+  --text-alt: #323460;
+  --text-muted: #5b6879;
+  --brand-primary: #534AB7;
+  --brand-primary-strong: #433A98;
+  --brand-secondary: #6B63C8;
+  --brand-soft: #8A83E8;
+  --brand-accent: #534AB7;
+  --border-soft: #d9d4f6;
+  --border-soft-2: #ddd8fb;
+  --border-soft-3: #d0c9fa;
+  --shadow-soft: 0 10px 30px rgba(20, 35, 52, 0.08);
+  --radius-md: 14px;
+  --radius-lg: 22px;
+}
+
+html,
+body {
   height: 100%;
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
-  font-family: 'Lora', serif;
 }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-main);
+  line-height: 1.55;
+  background:
+    radial-gradient(circle at 8% -12%, rgba(83, 74, 183, 0.14), transparent 38%),
+    radial-gradient(circle at 92% -10%, rgba(109, 100, 210, 0.14), transparent 34%),
+    var(--bg-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+}
+
 button {
   cursor: pointer;
   border: none;
 }
-
