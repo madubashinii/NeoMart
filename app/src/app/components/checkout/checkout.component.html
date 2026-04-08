@@ -1,81 +1,75 @@
 <div class="checkout-container">
-  <h2>Checkout</h2>
+  <div class="checkout-head">
+    <div>
+      <p class="kicker">Secure Checkout</p>
+      <h2>Checkout</h2>
+    </div>
+    <p class="head-note">Protected by secure payment flow</p>
+  </div>
 
-  <form *ngIf="!orderSubmitted" (ngSubmit)="onSubmit()" [formGroup]="checkoutForm">
-    <div class="form-group">
-      <label for="fullName">Full Name</label>
-      <input
-        id="fullName"
-        type="text"
-        formControlName="fullName"
-        class="form-control"
-        placeholder="Enter your full name"
-      />
+  <div class="checkout-layout">
+    <div>
+
+      <form *ngIf="!orderSubmitted" (ngSubmit)="onSubmit()" [formGroup]="checkoutForm" class="checkout-form">
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input id="fullName" type="text" formControlName="fullName" class="form-control"
+            placeholder="Enter your full name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email" class="form-control" placeholder="Enter your email" />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Shipping Address</label>
+          <input id="address" type="text" formControlName="address" class="form-control"
+            placeholder="Enter your shipping address" />
+        </div>
+
+        <div class="form-group">
+          <label for="paymentMethod">Payment Method</label>
+          <select id="paymentMethod" formControlName="paymentMethod" class="form-control">
+            <option value="creditCard">Credit Card</option>
+            <option value="paypal">PayPal</option>
+            <option value="bankTransfer">Bank Transfer</option>
+          </select>
+        </div>
+
+        <div class="form-group" *ngIf="checkoutForm.value.paymentMethod === 'creditCard'">
+          <label for="creditCardNumber">Credit Card Number</label>
+          <input id="creditCardNumber" type="text" formControlName="creditCardNumber" class="form-control"
+            placeholder="Enter credit card number" />
+        </div>
+
+        <div class="form-group" *ngIf="checkoutForm.value.paymentMethod === 'creditCard'">
+          <label for="expiryDate">Expiry Date</label>
+          <input id="expiryDate" type="text" formControlName="expiryDate" class="form-control" placeholder="MM/YY" />
+        </div>
+
+        <div class="form-group">
+          <button type="submit" [disabled]="checkoutForm.invalid" class="btn btn-primary">Submit Order</button>
+        </div>
+      </form>
+
+      <div class="order-summary" *ngIf="orderSubmitted">
+        <h3>Order Summary</h3>
+        <p><strong>Name:</strong> {{ checkoutForm.value.fullName }}</p>
+        <p><strong>Email:</strong> {{ checkoutForm.value.email }}</p>
+        <p><strong>Address:</strong> {{ checkoutForm.value.address }}</p>
+        <p><strong>Payment Method:</strong> {{ checkoutForm.value.paymentMethod }}</p>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        class="form-control"
-        placeholder="Enter your email"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="address">Shipping Address</label>
-      <input
-        id="address"
-        type="text"
-        formControlName="address"
-        class="form-control"
-        placeholder="Enter your shipping address"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="paymentMethod">Payment Method</label>
-      <select id="paymentMethod" formControlName="paymentMethod" class="form-control">
-        <option value="creditCard">Credit Card</option>
-        <option value="paypal">PayPal</option>
-        <option value="bankTransfer">Bank Transfer</option>
-      </select>
-    </div>
-
-    <div class="form-group" *ngIf="checkoutForm.value.paymentMethod === 'creditCard'">
-      <label for="creditCardNumber">Credit Card Number</label>
-      <input
-        id="creditCardNumber"
-        type="text"
-        formControlName="creditCardNumber"
-        class="form-control"
-        placeholder="Enter credit card number"
-      />
-    </div>
-
-    <div class="form-group" *ngIf="checkoutForm.value.paymentMethod === 'creditCard'">
-      <label for="expiryDate">Expiry Date</label>
-      <input
-        id="expiryDate"
-        type="text"
-        formControlName="expiryDate"
-        class="form-control"
-        placeholder="MM/YY"
-      />
-    </div>
-
-    <div class="form-group">
-      <button type="submit" [disabled]="checkoutForm.invalid" class="btn btn-primary">Submit Order</button>
-    </div>
-  </form>
-
-  <div class="order-summary" *ngIf="orderSubmitted">
-    <h3>Order Summary</h3>
-    <p><strong>Name:</strong> {{ checkoutForm.value.fullName }}</p>
-    <p><strong>Email:</strong> {{ checkoutForm.value.email }}</p>
-    <p><strong>Address:</strong> {{ checkoutForm.value.address }}</p>
-    <p><strong>Payment Method:</strong> {{ checkoutForm.value.paymentMethod }}</p>
+    <aside class="checkout-note" *ngIf="!orderSubmitted">
+      <h3>Before You Confirm</h3>
+      <p>Double-check your delivery details and payment method for a smooth checkout experience.</p>
+      <ul>
+        <li>Fast delivery across all major cities</li>
+        <li>Order confirmation instantly by email</li>
+        <li>Dedicated support for all order issues</li>
+      </ul>
+    </aside>
   </div>
 </div>

@@ -41,13 +41,16 @@
 
 <ng-template #cartWithItems>
   <div class="cart-container">
-    <h2>Your Cart</h2>
+    <div class="cart-head">
+      <p class="kicker">Shopping Bag</p>
+      <h2>Your Cart</h2>
+    </div>
 
     <mat-card *ngFor="let item of cartItems" class="mat-elevation-z2 cart-card">
       <mat-card-title>{{ item.productName }}</mat-card-title>
       <mat-card-content>
-        <p>Quantity: {{ item.quantity }}</p>
-        <p>Price: Rs. {{ item.productPrice }}</p>
+        <p><strong>Quantity</strong> {{ item.quantity }}</p>
+        <p><strong>Price</strong> Rs. {{ item.productPrice }}</p>
       </mat-card-content>
       <mat-card-actions>
         <button mat-stroked-button color="warn" (click)="removeItem(item)">Remove</button>
@@ -56,14 +59,16 @@
 
     <mat-card class="cart-summary mat-elevation-z1">
       <mat-card-content>
-        <p><strong>Total Quantity:</strong> {{ totalQuantity }}</p>
-        <p><strong>Total Price:</strong> Rs. {{ totalPrice }}</p>
+        <p><strong>Total Quantity</strong> {{ totalQuantity }}</p>
+        <p><strong>Total Price</strong> Rs. {{ totalPrice }}</p>
       </mat-card-content>
     </mat-card>
 
     <div class="cart-actions">
-      <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/checkout">Proceed to Checkout</button>
-      <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="/categories">Add More Products</button>
+      <button mat-raised-button color="primary" routerLinkActive="active" routerLink="/checkout">Proceed to
+        Checkout</button>
+      <button mat-stroked-button color="accent" routerLinkActive="active" routerLink="/categories">Add More
+        Products</button>
     </div>
   </div>
 </ng-template>

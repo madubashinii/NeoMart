@@ -1,13 +1,26 @@
 <div *ngIf="product" class="product-details">
-  <div class="product-image">
-    <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" />
+  <div class="product-image-panel">
+    <div class="product-image">
+      <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" />
+    </div>
   </div>
+
   <div class="product-info">
+    <p class="info-kicker">Signature Piece</p>
     <h2>{{ product.productName }}</h2>
-    <p><strong>Brand:</strong> {{ product.productBrand }}</p>
-    <p><strong class="price">Price:</strong> ${{ product.productPrice }}</p>
-    <p><strong>Color:</strong> {{ product.color }}</p>
-    <p class="details"><strong>Details:</strong> {{ product.productDetails }}</p>
+
+    <div class="meta-grid">
+      <p><strong>Brand</strong><span>{{ product.productBrand }}</span></p>
+      <p><strong>Color</strong><span>{{ product.color }}</span></p>
+    </div>
+
+    <p class="price">Rs. {{ product.productPrice }}</p>
+
+    <p class="details">
+      <strong>Details</strong>
+      {{ product.productDetails }}
+    </p>
+
     <div class="product-buttons">
       <button mat-button (click)="goBack()">Go Back</button>
       <button mat-button class="add-to-cart" (click)="addToCart(product)">Add to Cart</button>
