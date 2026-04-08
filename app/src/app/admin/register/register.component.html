@@ -1,15 +1,49 @@
-<div class="form-container">
-  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-    <h2>Register</h2>
+<div class="auth-page">
+  <div class="auth-shell">
+    <aside class="auth-side">
+      <p class="kicker">Create Account</p>
+      <h2>Join NeoMart and unlock premium fashion picks.</h2>
+      <p class="lead">Build your style profile, save favorites, and enjoy a faster checkout experience.</p>
 
-    <input formControlName="username" placeholder="Username" />
-    <input formControlName="email" placeholder="Email" />
-    <input formControlName="password" type="password" placeholder="Password" />
+      <ul class="auth-points">
+        <li>Track every order in one place</li>
+        <li>Save products and shop later</li>
+        <li>Get handpicked trend updates</li>
+      </ul>
 
-    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <div class="auth-stats">
+        <article>
+          <h3>50+</h3>
+          <span>Brand Partners</span>
+        </article>
+        <article>
+          <h3>24/7</h3>
+          <span>Support</span>
+        </article>
+      </div>
+    </aside>
 
-    <span class="switch-link">
-      <a routerLink="/login" routerLinkActive="active">Already have an account? Login</a>
-    </span>
-  </form>
+    <div class="form-container">
+      <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="onRegister()">
+        <p class="form-kicker">New Account</p>
+        <h2 class="form-title">Register</h2>
+        <p class="form-subtitle">Create your profile to start shopping.</p>
+
+        <label for="register-username">Username</label>
+        <input id="register-username" formControlName="username" placeholder="Choose username" />
+
+        <label for="register-email">Email</label>
+        <input id="register-email" formControlName="email" placeholder="Enter email" />
+
+        <label for="register-password">Password</label>
+        <input id="register-password" formControlName="password" type="password" placeholder="Create password" />
+
+        <button type="submit" [disabled]="registerForm.invalid">Register</button>
+
+        <span class="switch-link">
+          <a routerLink="/login" routerLinkActive="active">Already have an account? Login</a>
+        </span>
+      </form>
+    </div>
+  </div>
 </div>

@@ -1,15 +1,47 @@
-<div class="form-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <h2 class="form-title">Login</h2>
+<div class="auth-page">
+  <div class="auth-shell">
+    <aside class="auth-side">
+      <p class="kicker">Welcome Back</p>
+      <h2>Sign in and continue your NeoMart journey.</h2>
+      <p class="lead">Pick up where you left off with saved products, tailored suggestions, and order tracking.</p>
 
-    <input formControlName="username" placeholder="Username" type="text" />
-    <input formControlName="password" placeholder="Password" type="password" />
+      <ul class="auth-points">
+        <li>Personalized recommendations</li>
+        <li>Quick re-order from order history</li>
+        <li>Priority support for members</li>
+      </ul>
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+      <div class="auth-stats">
+        <article>
+          <h3>12k+</h3>
+          <span>Products</span>
+        </article>
+        <article>
+          <h3>4.9/5</h3>
+          <span>User Rating</span>
+        </article>
+      </div>
+    </aside>
 
-    <p class="switch-link">
-      Don't have an account?
-      <a routerLink="/register" routerLinkActive="active">Register</a>
-    </p>
-  </form>
+    <div class="form-container">
+      <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <p class="form-kicker">Account Access</p>
+        <h2 class="form-title">Login</h2>
+        <p class="form-subtitle">Enter your details to continue shopping.</p>
+
+        <label for="login-username">Username</label>
+        <input id="login-username" formControlName="username" placeholder="Enter username" type="text" />
+
+        <label for="login-password">Password</label>
+        <input id="login-password" formControlName="password" placeholder="Enter password" type="password" />
+
+        <button type="submit" [disabled]="loginForm.invalid">Login</button>
+
+        <p class="switch-link">
+          Don't have an account?
+          <a routerLink="/register" routerLinkActive="active">Register</a>
+        </p>
+      </form>
+    </div>
+  </div>
 </div>
