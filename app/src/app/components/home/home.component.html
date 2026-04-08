@@ -1,24 +1,58 @@
-<div class="full-width-hero">
-  <div class="hero-section">
-    <div class="hero-content">
-      <h1>Welcome to Our Clothing Store</h1>
-      <p>Discover New Trends at NeoMart.</p>
-      <button mat-button routerLink="/product">Shop Now</button>
-    </div>
-  </div>
-</div>
+<div class="home-shell">
+  <section class="hero-band">
+    <div class="hero-copy">
+      <span class="eyebrow">NeoMart Edit 2026</span>
+      <h1>Elevate your wardrobe with standout essentials.</h1>
+      <p>From statement pieces to everyday staples, discover premium picks curated for modern style.</p>
 
-<div class="home-container">
-  <div class="featured-products">
-    <h2>Featured Products</h2>
-    <div class="product-list">
-      <div *ngFor="let product of featuredProducts" class="product-card">
-        <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" />
-        <h3>{{ product.productName }}</h3>
-        <button mat-button [routerLink]="'/product/' + product.id" routerLinkActive="active">
-          View Details
-        </button>
+      <div class="hero-actions">
+        <button mat-flat-button routerLink="/product" routerLinkActive="active">Shop New Arrivals</button>
+        <button mat-stroked-button routerLink="/product" routerLinkActive="active">Explore Collection</button>
+      </div>
+
+      <div class="hero-notes">
+        <span>Free shipping over Rs. 4999</span>
+        <span>7-day easy returns</span>
+        <span>100% authentic brands</span>
+      </div>
+
+      <div class="hero-metrics">
+        <article>
+          <h3>12k+</h3>
+          <span>Products</span>
+        </article>
+        <article>
+          <h3>4.9/5</h3>
+          <span>Customer Rating</span>
+        </article>
+        <article>
+          <h3>48h</h3>
+          <span>Fast Delivery</span>
+        </article>
       </div>
     </div>
-  </div>
+
+    <div class="hero-spotlight">
+      <a class="spot-card" *ngFor="let product of featuredProducts | slice:0:3" [routerLink]="'/product/' + product.id"
+        routerLinkActive="active">
+        <div class="spot-image-wrap">
+          <img [src]="imageBaseUrl + product.productImg1" alt="{{ product.productName }}" />
+        </div>
+        <div class="spot-content">
+          <h3>{{ product.productName }}</h3>
+          <p class="spot-sub">Limited edition selection</p>
+          <div class="spot-price-row">
+            <span class="old-price">Rs. {{ product.productPrice + 1500 }}</span>
+            <span class="new-price">Rs. {{ product.productPrice }}</span>
+          </div>
+        </div>
+      </a>
+
+      <article class="spot-accent">
+        <p class="accent-kicker">Style Drop</p>
+        <h4>New season edit just landed.</h4>
+        <a routerLink="/product" routerLinkActive="active">Discover now</a>
+      </article>
+    </div>
+  </section>
 </div>
